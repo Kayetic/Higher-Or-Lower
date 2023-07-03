@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap");
+
+* {
+  /* outline: red dashed 1px; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans Mono", "Consolas", "SF Mono", monospace;
+  /* outline: red dashed 1px; */
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1.5rem;
+}
+
+.main-container h2 {
+  font-size: 3rem;
+  letter-spacing: 24px;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* nice bezier curve */
+  /* transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); */
+  background: linear-gradient(to right, #ff7f7f, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-container p {
+  font-size: 1.5rem;
+  color: #808080;
+}
