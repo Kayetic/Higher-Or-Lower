@@ -12,9 +12,12 @@
 
 body {
   margin: 0;
-  height: 100vh;
+  /* height: 100vh; Remove this line */
   display: grid;
   place-items: center;
+  /* Add a height property with a fallback value */
+  height: 100vh; /* Fallback for browsers that do not support custom properties */
+  height: var(--vh, 100vh);
 }
 
 .main-container {
