@@ -8,24 +8,24 @@ setTimeout(function () {
   higherLowerText.style.fontSize = "4rem";
 }, 100);
 
-console.log(weatherAPIKey);
+// console.log(weatherAPIKey);
 
 const getCurrentWeather = async function () {
   let url =
-    "https://api.openweathermap.org/data/3.0/onecall?lat=51.51&lon=0.13&exclude=current,minutely,hourly,alerts&appid=42d397e5a775ae63f3b94f0e308f7fc3";
+    "https://api.openweathermap.org/data/3.0/onecall?lat=51.51&lon=0.13&exclude=current,minutely,hourly,alerts&appid=42d397e5a775ae63f3b94f0e308f7fc3&units=metric";
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
-  // getting just the hourly forecast of temperatures into an array
-  //   const hourlyForecast = data.daily[0].temp;
-  // get the temperatures at 11am, 12am, 1pm and 2pm then take the average
-  const averageTemp =
-    (hourlyForecast.morn +
-      hourlyForecast.day +
-      hourlyForecast.eve +
-      hourlyForecast.night) /
-    4;
-  //   console.log(hourlyForecast);
+
+  // Access the "daily" array
+  const dailyForecasts = data.daily;
+
+  // Access the first forecast (day 0)
+  const firstForecast = dailyForecasts[0];
+
+  // Extract the "feels_like" temperature for the first forecast
+  const feelsLikeTemp = firstForecast.feels_like.day;
+
+  console.log("Feels like temperature:", feelsLikeTemp);
 };
 
 getCurrentWeather();
