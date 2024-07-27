@@ -15,3 +15,7 @@ and when pasting in the terminal to cut down the data, pipe it into jq like so:
 jq '.items[1].guideSubscriptionsSectionRenderer.items[7].guideCollapsibleEntryRenderer.expandableItems' > channels.json
 
 and in the end you'll get some data, in the same folder as this
+
+then from there, use this:
+
+cat channels.json | jq '.[] | .guideEntryRenderer.formattedTitle.simpleText' -r > extractedChannels.txt
