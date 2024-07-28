@@ -19,3 +19,11 @@ and in the end you'll get some data, in the same folder as this
 then from there, use this:
 
 cat channels.json | jq '.[] | .guideEntryRenderer.formattedTitle.simpleText' -r > extractedChannels.txt
+
+to make json with the name, url and thumbnail of channel, use this:
+
+cat channels.json | jq '[.[] | {
+title: .guideEntryRenderer.formattedTitle.simpleText,
+nav_url: .guideEntryRenderer.navigationEndpoint.commandMetadata.webCommandMetadata.url,
+thumbnail: .guideEntryRenderer.thumbnail.thumbnails[0].url
+}]' -r > allChannelInfo.json
